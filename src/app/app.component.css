@@ -1,0 +1,9 @@
+/* styles.css */
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background-color: #f8f9fa; /* Set the background color you want */
+  padding: 10px 0; /* Add padding for spacing */
+  text-align: center;
+}
