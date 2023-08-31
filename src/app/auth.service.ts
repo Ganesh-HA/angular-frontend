@@ -24,4 +24,7 @@ export class AuthService {
     return this.http.post(`${this.baseUrl}/logout`, null);
   }
 
+  sendResetEmail(userData: any): Observable<any> {
+    return this.http.post(`${this.baseUrl}/send-reset-email`, userData);
+  }
 }

@@ -7,17 +7,24 @@ import { EmployeeDetailsComponent } from './employee-details/employee-details.co
 import { LoginComponent } from './login/login.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { LogoutComponent } from './logout/logout.component';
+// import { AuthGuard } from './auth.guard';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 
 const routes: Routes = [
   {path:'',redirectTo:'/login',pathMatch:'full'},
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegistrationComponent },
+  { path: 'forgot-password', component: ForgotPasswordComponent },
   { path: 'logout', component: LogoutComponent },
   {path: 'employees', component: EmployeeListComponent},
   {path: 'create-employee', component: CreateEmployeeComponent},
-  // {path: '', redirectTo: 'employees', pathMatch: 'full'},
   {path: 'update-employee/:id', component: UpdateEmployeeComponent},
-  {path: 'employee-details/:id', component: EmployeeDetailsComponent}
+  {path: 'employee-details/:id', component: EmployeeDetailsComponent},
+  // { path: 'login', component: LoginComponent },
+  // {path: '', redirectTo: 'employees', pathMatch: 'full'},
+  // { path: 'employees', component: EmployeeListComponent, canActivate: [AuthGuard] },
+  // { path: 'create-employee', component: CreateEmployeeComponent, canActivate: [AuthGuard] },
+  
 ];
 
 @NgModule({

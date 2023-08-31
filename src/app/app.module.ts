@@ -12,6 +12,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { LogoutComponent } from './logout/logout.component';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { LogoutComponent } from './logout/logout.component';
     LoginComponent,
     RegistrationComponent,
     LogoutComponent,
+    ForgotPasswordComponent,
   ],
   imports: [
     BrowserModule,

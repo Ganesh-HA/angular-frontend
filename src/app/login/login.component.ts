@@ -33,12 +33,5 @@ export class LoginComponent {
     );
   }
   
-  
+}
 
- 
-  
-
-
-  
- 
-  }
