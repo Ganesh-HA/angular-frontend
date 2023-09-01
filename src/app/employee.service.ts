@@ -1,44 +1,28 @@
-
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Employee } from './employee';
-import { AuthService } from './auth.service';
+import { environment } from 'src/environments/environment';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable({providedIn: 'root'})
 export class EmployeeService {
-  [x: string]: any;
-  private baseURL="http://localhost:8080/api/v1/employees"
+  private apiServerUrl = environment.apiBaseUrl;
 
-  constructor(private httpClient:HttpClient,private authService: AuthService) { }
+  constructor(private http: HttpClient){}
 
-  getEmployeesList(): Observable<Employee[]>{
-    return this.httpClient.get<Employee[]>(this.baseURL);
-  }
-  
-  createEmployee(employee:Employee): Observable<Object>{
-    return this.httpClient.post((this.baseURL),employee);
+  public getEmployees(): Observable<Employee[]> {
+    return this.http.get<Employee[]>(`${this.apiServerUrl}/employee/all`);
   }
 
-  getEmployeeById(id:number):Observable<Employee>{
-    return this.httpClient.get<Employee>(`${this.baseURL}/${id}`);
-  }
-  updateEmployee(id: number, employee: Employee): Observable<Object>{
-    return this.httpClient.put(`${this.baseURL}/${id}`, employee);
-  }
-  deleteEmployee(id:number): Observable<Object>{
-    return this.httpClient.delete(`${this.baseURL}/${id}`);
+  public addEmployee(employee: Employee): Observable<Employee> {
+    return this.http.post<Employee>(`${this.apiServerUrl}/employee/add`, employee);
   }
 
-  register(userData: any): Observable<any> {
-    return this['http'].post(`${this.baseURL}/register`, userData);
+  public updateEmployee(employee: Employee): Observable<Employee> {
+    return this.http.put<Employee>(`${this.apiServerUrl}/employee/update`, employee);
   }
 
-  login(credentials: any): Observable<any> {
-    return this['http'].post(`${this.baseURL}/login`, credentials);
+  public deleteEmployee(employeeId: number): Observable<void> {
+    return this.http.delete<void>(`${this.apiServerUrl}/employee/delete/${employeeId}`);
   }
-  
-  
 }

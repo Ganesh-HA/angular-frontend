@@ -1,12 +1,9 @@
-export class Employee {
-  id !: number ;
-  firstName !: string ;
-  lastName !: string ;
-  emailId !: string ;
-  constructor() {
-    this.id = 0;
-    this.firstName = '';
-    this.lastName = '';
-    this.emailId = '';
-}
+export interface Employee {
+  id: number;
+  name: string;
+  email: string;
+  jobTitle: string;
+  phone: string;
+  imageUrl: string;
+  employeeCode: string;
 }
